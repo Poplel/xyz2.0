@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>poplel.xyz | My Links</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+</head>
+<style>
+    body {
+        background-color: #C0C0C0;
+    }
+</style>
+<body>
+    <div style="text-align: center; display: flex; flex-direction: column; height: 96vh;">
+        <div class="window" style="text-align: center; width: auto; display: flex; flex-direction: column; flex-grow: 1;">
+                <div class="title-bar">
+                    <div class="title-bar-text">poplel.xyz | My Links</div>
+                        <div class="title-bar-controls">
+                            <button aria-label="Minimize" onclick="document.exitFullscreen()"></button>
+                            <button aria-label="Maximize" onclick="document.documentElement.requestFullscreen()"></button>
+                            <a href="https://youtube.com/watch?v=dQw4w9WgXcQ"><button aria-label="Close"></button></a>
+                        </div>
+                </div>
+                    <img src="https://media.pophosting.xyz/assets/poplelxyz/pfp.png" alt="Avatar" width="200" height="200" style="margin-top: 20px; align-self: center;">
+
+                    <div style="justify-content: center; display: flex; flex-direction: column; align-items: center; margin-top: 20px; margin-bottom: 20px;">
+                    <div class="window" style="width: 320px"><div class="title-bar">
+                        <div class="title-bar-text">About me</div>
+                        <div class="title-bar-controls">
+                            <a href="https://youtube.com/watch?v=dQw4w9WgXcQ"><button aria-label="Close"></button></a>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                    <p style="font-size: 20px;"> Hey! I'm Poplel!</p>
+                    <ul>
+                        <li>Network Operations/Engineering</li>
+                        <li>Homelabbing/Selfhosting</li>
+                        <li>Open Source Software and Hardware</li>
+                        <li>3D Printing</li>
+                    </ul>
+                    </div>
+                    </div><div class="window" style="width: 320px; margin-top: 40px;"> 
+                        <div class="title-bar">
+                            <div class="title-bar-text">My stuff</div>
+                            <div class="title-bar-controls">
+                                <a href="https://youtube.com/watch?v=dQw4w9WgXcQ"><button aria-label="Close"></button></a>
+                            </div>
+                        </div>
+                        <div class="window-body">
+                            <menu role="tablist">
+                                <li role="tab" aria-selected="true"><a href="#tabs">Links</a></li>
+                                <li role="tab"><a href="#tabs">Software</a></li>
+                                <li role="tab"><a href="#tabs">Hardware</a></li>
+                            </menu>
+                            <div class="window" role="tabpanel">
+                                <div class="window-body" id="tab-content">
+                                    </div>
+                            </div>
+                        </div>
+                    </div> 
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const tabData = {
+                                "Links": `
+                                    <p>Check out my links:</p>
+                                    <ul>
+                                        <li><a href="https://github.com/Poplel/">GitHub</a></li>
+                                        <li><a href="https://www.instagram.com/poplel.ttv/">Instagram</a></li>
+                                        <li><a href="https://sky.shiiyu.moe/stats/Poplel_/Kiwi">SkyCrypt</a></li>
+                                    </ul>`,
+                                "Software": `
+                                    <p>My software projects:</p>
+                                    <ul>
+                                        <li><a>Example 1</a></li>
+                                        <li><a>Example 2</a></li>
+                                        <li><a>Example 3</a></li>
+                                    </ul>`,
+                                "Hardware": `
+                                    <p>My hardware projects</p>
+                                    <ul>
+                                        <li><a>Cat Feeder</a></li>
+                                        <li><a>Macro Keyboard<a/></li>
+                                        <li><a>Example 1</a></li>
+                                    </ul>`
+                            };
+
+                            // select dom elements
+                            const tabs = document.querySelectorAll('menu[role="tablist"] li[role="tab"]');
+                            const contentArea = document.getElementById('tab-content');
+                            //load links
+                            contentArea.innerHTML = tabData["Links"];
+
+                            // listen for clicks
+                            tabs.forEach(tab => {
+                                tab.addEventListener('click', (e) => {
+                                    // Remove aria-selected from all tabs
+                                    tabs.forEach(t => t.removeAttribute('aria-selected'));
+                                    // Add aria-selected to the clicked tab
+                                    tab.setAttribute('aria-selected', 'true');
+                                    // Get the right tab and update
+                                    const tabName = tab.textContent.trim();
+                                    contentArea.innerHTML = tabData[tabName] || '<p>Loading or broken</p>';
+                                });
+                            });
+                        });
+                    </script>
+                    <div style="flex-grow: 1"></div></div>
+            </div>
+</body>
+</html>
